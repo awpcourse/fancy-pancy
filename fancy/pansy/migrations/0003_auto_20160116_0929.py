@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pansy', '0002_remove_photo_owner'),
+        ('pansy', '0001_initial'),
     ]
 
     operations = [
