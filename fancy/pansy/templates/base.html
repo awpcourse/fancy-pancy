@@ -1,3 +1,5 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +47,8 @@
         </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <img src="/Users/catalinabrinza/Downloads/pic.jpeg" style="max-width: 100%">
+    
+    <img src={% static 'pic.jpeg' %} style="max-width: 100%">
     </section>
 </body>
     

@@ -5,5 +5,4 @@ from django.shortcuts import render
 class HomeView(TemplateView):
 
     def get(self, request):
-        print '####'
         return render(request, "base.html", {})
