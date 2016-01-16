@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from pansy.forms.authentication import UserSigninForm, UserSignupForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 
 def signin(request):
@@ -50,6 +51,13 @@ def signup(request):
         last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
+
+        password1 = request.POST['retype_password']
+
+        if not password1:
+            raise ValidationError("You must confirm your password")
+        if password != password1:
+            raise ValidationError("Your passwords do not match")
 
         user = User.objects.create_user(username=username, first_name=first_name,
                                         last_name=last_name, email=email, password=password)
