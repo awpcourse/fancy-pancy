@@ -25,7 +25,7 @@ SECRET_KEY = 'on1z4sof6lt-565716huir9w@pym!$e!(id6k+5$d#+p1fl%gp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -96,10 +96,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
+STATIC_ROOT = '%s/pansy/' %  BASE_DIR
+STATICFILES_DIRS = ('%s/pansy/static/' % BASE_DIR,)
