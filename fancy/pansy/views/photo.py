@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 
 from pansy.models.photo import Photo
 from pansy.forms.addphoto import AddPhotoForm
+from pansy.forms.comment import CommentForm
+from pansy.models.comment import Comment
 
 
 class PhotoView(TemplateView):
@@ -12,11 +14,24 @@ class PhotoView(TemplateView):
         tags = [t.tag for t in ph.tagtophoto_set.all()]
         likes = ph.like_set.count()
 
+        form = CommentForm()
+
         path = ph.image.url.split('/')[-1]
         context = {'photo': ph, 'comments': comments, 'tags': tags,
-                   'likes': likes, 'path': path}
+                   'likes': likes, 'path': path, 'form': form}
 
         return render(request, 'show_photo.html', context)
+
+    def post(self, request, pk):
+        form = CommentForm(request.POST)
+        ph = Photo.objects.get(pk=pk)
+
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            comment = Comment(text=text, owner=request.user, photo=ph)
+            comment.save()
+
+        return redirect('/photo/' + str(pk))
 
 
 class AddPhotoView(TemplateView):

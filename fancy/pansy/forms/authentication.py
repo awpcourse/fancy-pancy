@@ -13,5 +13,6 @@ class UserSignupForm(Form):
     first_name = CharField(max_length=30)
     last_name = CharField(max_length=30)
     email = EmailField()
-    password = CharField(max_length=30)
+    password = CharField(max_length=30, widget=PasswordInput)
+    retype_password = CharField(max_length=30, widget=PasswordInput)
 
