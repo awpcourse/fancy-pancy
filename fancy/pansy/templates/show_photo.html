@@ -13,20 +13,13 @@
     <p>"{{ photo.description }}"</p>
 
 
-  <h3 style="display: inline">Likes: {{ likes }} </h3> 
+        <br>
+
+  <h3 style="display: inline">Likes: {{ likes }} </h3>
   </div>
 
   <br>
   <br>
-  <br>
-
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Post" class="btn btn-success">
-  </form>
-
-    <br>
   <h3 style="display: inline">Tags:</h3>
   {% for tag in tags %}
     <div class="tag" style="display:inline">
@@ -40,6 +33,16 @@
     {% csrf_token %}
     {{ tag_form.as_p }}
     <input type="submit" value="Add New Tag" class="btn btn-success">
+  </form>
+
+  <br />
+  <br />
+  <br />
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Post" class="btn btn-success">
   </form>
 
   <h3>Comments:</h3>
