@@ -7,12 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pansy', '0001_initial'),
+        ('pansy', '0006_auto_20160116_1303'),
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.AlterField(
             model_name='photo',
-            name='owner',
+            name='image',
+            field=models.ImageField(upload_to=b'/home/dan/Workspaces/Python Workspace/fancy-pansy/fancy/media'),
         ),
     ]

@@ -101,3 +101,7 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'login'
 STATIC_ROOT = '%s/pansy/' %  BASE_DIR
 STATICFILES_DIRS = ('%s/pansy/static/' % BASE_DIR,)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MEDIA_DIRS = ('%s/pansy/media/' % BASE_DIR,)
