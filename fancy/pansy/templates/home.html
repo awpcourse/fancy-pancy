@@ -4,14 +4,12 @@
 <article class="picture-box picture-box--banner">
   <div class="picture-canvas">
     <div class="container">
-      <div class="row">
         <img class="picture-box--logo" src="{% static 'pic_1440.jpg' %}"/>
         {% if user.is_authenticated %}
         <h1>Welcome, {{ request.user.username | capfirst }}!</h1>
         {% else %}
         <h1>Welcome!</h1>
         {% endif %}
-      </div>
     </div>
   </div>
 </article>
