@@ -122,3 +122,52 @@
 .signup-form .btn-primary:hover {
   background-color: #9DA942;
 }
+
+/* Add photo */
+.addphoto-form {
+  background: url('addphoto.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.addphoto-form form {
+  margin-top: 10%;
+  background-color: rgba(255,255,255,.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+
+.addphoto-form h3 {
+  text-align: center;
+  color: black;
+}
+
+.addphoto-form input {
+  margin-left: 10%;
+  width: 50%;
+}
+.addphoto-form input#id_name {
+  margin-left: 14%;
+}
+
+.addphoto-form input#id_public {
+  margin-left: -10%;
+}
+
+.addphoto-form input#id_image {
+  display: inline;
+  margin-left: 14%;
+}
+
+.addphoto-form label {
+  color: black;
+  font-size: 16px;
+}
+
+.addphoto-form button {
+  margin-left: 40%;
+  background-color: black;
+}
+
