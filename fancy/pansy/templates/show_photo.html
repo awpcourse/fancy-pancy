@@ -6,7 +6,7 @@
   <h2>{{ photo.name }}</h2>
   <div class="photo">
     <p>Published by {{ photo.owner.username }} on {{ photo.date_added }}</p>
-    <img class="image" src="/media/{{ path }}"/>
+    <img class="image" src="/media/{{ path }}" style="max-width: 80%; margin-left: 10%; margin-right: 10%"/>
     <br />
     <br />
     <br />
@@ -32,7 +32,7 @@
   <form method="post">
     {% csrf_token %}
     {{ tag_form.as_p }}
-    <input type="submit" value="Add New Tag" class="btn btn-success">
+    <input type="submit" value="Add New Tag" class="btn btn-primary" style="background-color: black">
   </form>
 
   <br />
@@ -42,7 +42,7 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Post" class="btn btn-success">
+    <input type="submit" value="Post" class="btn btn-success" style="background-color: black">
   </form>
 
   <h3>Comments:</h3>

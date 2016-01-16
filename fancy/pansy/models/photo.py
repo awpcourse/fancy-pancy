@@ -7,6 +7,6 @@ class Photo(models.Model):
     description = models.TextField()
     image = models.FileField(upload_to=MEDIA_ROOT)
     date_added = models.DateTimeField(auto_now_add=True)
-    public = models.BooleanField()
+    public = models.BooleanField(blank=True, default=False)
     owner = models.ForeignKey(User)
 
