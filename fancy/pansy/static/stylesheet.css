@@ -5,12 +5,14 @@
 
 .base-nav {
   margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .picture-box--banner {
+  background: url('pic.jpeg');
   background-position: center;
   background-size: cover;
-  height: 600px;
+  height: 800px;
 }
 
 .picture-box--banner .container {
@@ -31,4 +33,38 @@
   font-height: 52px;
   margin-top: -40%;
   margin-left: 45%;
+}
+
+.signin-form {
+  background: url('signing.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.signin-form form {
+  margin-top: 10%;
+  background-color: rgba(255,255,255,.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.signin-form h3 {
+  margin-left: 35%;
+  color: rgba(24, 107, 84, 0.83);
+}
+
+.signin-form input {
+  margin-left: 10%;
+  width: 60%;
+}
+
+.signin-form label {
+  color: rgba(24, 107, 84, 0.83);
+  font-size: 16px;
+}
+
+.signin-form button {
+  margin-left: 40%;
+  background-color: rgba(24, 107, 84, 0.83);
 }
