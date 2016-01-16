@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<article class="picture-box picture-box--banner">
+  <div class="picture-canvas">
+    <div class="container">
+      {% if user.is_authenticated %}
+      <h1>Welcome, {{ request.user.username | capfirst }}!</h1>
+      {% else %}
+      <h1>Welcome!</h1>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% endblock %}

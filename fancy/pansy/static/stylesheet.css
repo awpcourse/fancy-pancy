@@ -1,0 +1,124 @@
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.base-nav {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/* Home page */
+.picture-box--banner {
+  background: url('pic.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.picture-box--banner .container {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.picture-box--banner .picture-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.picture-box h1 {
+  color: white;
+  font-size: 50px;
+  font-height: 52px;
+  margin-top: 20%;
+  margin-left: 47%;
+}
+/* Sign in form */
+.signin-form {
+  background: url('signing.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.signin-form form {
+  margin-top: 10%;
+  background-color: rgba(255,255,255,.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.signin-form h3 {
+  margin-left: 35%;
+  color: rgba(24, 107, 84, 0.83);
+}
+
+.signin-form input {
+  margin-left: 10%;
+  width: 60%;
+}
+.signin-form input#id_username {
+  margin-left: 9%;
+}
+
+.signin-form label {
+  color: rgba(24, 107, 84, 0.83);
+  font-size: 16px;
+}
+
+.signin-form button {
+  margin-left: 40%;
+  background-color: rgba(24, 107, 84, 0.83);
+}
+
+/* Sign up form */
+
+.signup-form {
+  background: url('signup.jpeg');
+  background-position: center;
+  background-size: cover;
+  height: 800px;
+}
+
+.signup-form form {
+  margin-top: 7%;
+  background-color: rgba(255,255,255,.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.signup-form label {
+  padding-right: 10px;
+}
+.signup-form input#id_email {
+  margin-left: 77px;;
+}
+.signup-form input#id_password {
+  margin-left: 49px;;
+}
+.signup-form input#id_username, input#id_first_name, input#id_last_name {
+  margin-left: 45px;;
+}
+.signup-form input {
+  width: 60%;
+}
+
+.signup-form h3 {
+  margin-left: 35%;
+  color: rgba(138, 82, 59, 0.94);
+}
+.signup-form label {
+  color: rgba(138, 82, 59, 0.94);
+}
+
+.signup-form button {
+  margin-left: 40%;
+  background-color: rgba(138, 82, 59, 0.94);
+  border: none;
+}
+
+.signup-form .btn-primary:hover {
+  background-color: #9DA942;
+}
