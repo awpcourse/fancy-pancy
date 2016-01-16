@@ -8,6 +8,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^login/', authentication.login_view),
+    url(r'^signin/', authentication.signin),
+    url(r'^signup/', authentication.signup),
 ]
