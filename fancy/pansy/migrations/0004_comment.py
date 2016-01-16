@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
@@ -18,6 +19,7 @@ class Migration(migrations.Migration):
                 ('text', models.TextField()),
                 ('date_added', models.DateTimeField(auto_now_add=True)),
                 ('photo', models.ForeignKey(to='pansy.Photo')),
+                ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
