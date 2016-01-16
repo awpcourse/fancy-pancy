@@ -33,7 +33,7 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    return redirect('/signin/')
+    return redirect('/')
 
 
 def signup(request):
