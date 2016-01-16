@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'stylesheet.css' %}" >
 
-</head>    
+</head>
 
 <body>
     <section>
@@ -32,6 +32,7 @@
                 <li><a href="#">Explore</a></li>
             </ul>
         <ul class="nav navbar-nav navbar-right">
+
             {% if user.is_authenticated %}
             <li><a href="{% url 'signout' %}">Sign Out</a></li>
             {% else %}
@@ -48,11 +49,16 @@
         </div>
         </div>
     </nav>
+    {% if user.is_authenticated %}
+        <p class="text-right" style="margin-right: 7px">Welcome {{ request.user.username }}</p>
+    {% endif %}
+    <img src={% static 'pic.jpeg' %} style="max-width: 100% ">
     </section>
+
     {% block content %}
     {% endblock %}
 </body>
-    
-</html>    
 
-    
+</html>
+
+
