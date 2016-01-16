@@ -6,10 +6,11 @@
         <a href = "/photos/recent" style="padding: 20px">Recent</a>
         <a href = "/photos/liked" style="padding: 20px">Liked</a>
     </div>
-    {% for photo, path in photos %}
+    {% for photo in photos %}
     <div class = "col-sm-6 col-md-3">
-        <a href = "/photo/{{ photo.id }}" class = "thumbnail">
-            <img src="/media/{{ path }}">
+        <h3> {{photo.name }} </h3>
+        <a href="/photo/{{ photo.id }}" class = "thumbnail">
+            <img src="{{photo.image.url}}">
         </a>
     </div>
     {% endfor %}

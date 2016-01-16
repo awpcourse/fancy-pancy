@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.db.models import Q
 from pansy.forms.search import SearchForm
 from pansy.models.photo import Photo
+from pansy.models.tag import Tag
+from pansy.models.tag import TagToPhoto
 import unicodedata
 
 def search_view(request):
@@ -8,17 +11,15 @@ def search_view(request):
         search_key = request.POST['searchField']
         form = SearchForm({"searchField":search_key})
         if not form.is_valid():
-            return render(request, 'search.html', {'searchform': form})
+            return render(request, 'show_photos.html', {'searchform': form})
         
         data = form.cleaned_data
         key = unicodedata.normalize('NFKD', search_key).encode('ascii','ignore')
-        #photos_tag = Photo.objects.filter(tagtophoto__icontains=key)
-        photos_name = Photo.objects.filter(name__icontains=key)
-        photos_description = Photo.objects.filter(description__icontains=key)
-        photos = [ photos_name, photos_description]
-        
-        return render(request, 'search.html', {'results': ""})
+    
+        photos = Photo.objects.filter(Q(name__icontains=key) | Q(description__icontains=key),)
+        request.photos = photos
+        return render(request, 'show_photos.html', {'photos': photos})
     
     elif request.method == "GET":
         form = SearchForm()
-        return render(request, 'search.html' ,{'searchform': form})
+        return render(request, 'show_photos.html', {'searchform': form})
