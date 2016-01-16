@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron fill col-sm-8 col-sm-offset-2">
+    <div style="text-align: center; padding-bottom: 40px">
+        <a href = "/photos/recent" style="padding: 20px">Recent</a>
+        <a href = "/photos/liked" style="padding: 20px">Liked</a>
+    </div>
+    {% for photo, path in photos %}
+    <div class = "col-sm-6 col-md-3">
+        <a href = "/photo/{{ photo.id }}" class = "thumbnail">
+            <img src="/media/{{ path }}">
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

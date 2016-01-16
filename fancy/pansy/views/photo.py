@@ -5,6 +5,9 @@ from pansy.models.photo import Photo
 from pansy.forms.addphoto import AddPhotoForm
 from pansy.forms.comment import CommentForm
 from pansy.models.comment import Comment
+from pansy.forms.tagform import TagForm
+from pansy.models.tag import Tag
+from pansy.models.tag import TagToPhoto
 
 
 class PhotoView(TemplateView):
@@ -18,18 +21,30 @@ class PhotoView(TemplateView):
 
         path = ph.image.url.split('/')[-1]
         context = {'photo': ph, 'comments': comments, 'tags': tags,
-                   'likes': likes, 'path': path, 'form': form}
+                   'likes': likes, 'path': path, 'form': form, 'tag_form': TagForm()}
 
         return render(request, 'show_photo.html', context)
 
     def post(self, request, pk):
-        form = CommentForm(request.POST)
         ph = Photo.objects.get(pk=pk)
 
-        if form.is_valid():
-            text = form.cleaned_data['text']
-            comment = Comment(text=text, owner=request.user, photo=ph)
-            comment.save()
+        if 'name' in request.POST:
+            name = request.POST['name']
+            # check if tag exists
+            tag = Tag(name=name)
+            tag.save()
+
+            # check if ph has tag
+            tagToPhoto = TagToPhoto(photo=ph, tag=tag)
+            tagToPhoto.save()
+        else:
+            form = CommentForm(request.POST)
+
+
+            if form.is_valid():
+                text = form.cleaned_data['text']
+                comment = Comment(text=text, owner=request.user, photo=ph)
+                comment.save()
 
         return redirect('/photo/' + str(pk))
 
